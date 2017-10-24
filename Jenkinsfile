@@ -9,7 +9,7 @@ pipeline {
         
       }
       steps {
-        sh 'docker build -t test compose/local/django'
+        echo 'Hey there I\'m learning Jenkins Blue Ocean'
       }
     }
   }
