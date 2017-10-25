@@ -12,5 +12,10 @@ pipeline {
 '''
       }
     }
+    stage('') {
+      steps {
+        sh 'docker-compose -f local.yml run django python manage.py test'
+      }
+    }
   }
 }
