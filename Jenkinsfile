@@ -6,15 +6,10 @@ pipeline {
         echo 'Hey there I\'m learning Jenkins Blue Ocean'
       }
     }
-    stage('') {
-      agent {
-        dockerfile {
-          filename 'compose/local/django/Dockerfile'
-        }
-        
-      }
+    stage('Docker build') {
       steps {
-        echo 'Building the image'
+        sh '''docker-compose -f local.yml build
+'''
       }
     }
   }
