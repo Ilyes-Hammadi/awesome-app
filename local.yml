@@ -28,4 +28,4 @@ services:
       - postgres_data_local:/var/lib/postgresql/data
       - postgres_backup_local:/backups
     environment:
-      - POSTGRES_USER=awesome_app
+      - POSTGRES_USER=awesome_ap
