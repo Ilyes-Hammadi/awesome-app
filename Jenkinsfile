@@ -8,18 +8,21 @@ pipeline {
     }
     stage('Docker build') {
       steps {
-        sh '''docker-compose -f local.yml build
+        sh '''docker-compose -f production.yml build
 '''
+        echo 'Building the production docker compose'
       }
     }
     stage('Unit tests') {
       steps {
-        sh 'docker-compose -f local.yml run django python manage.py test'
+        sh 'docker-compose -f production.yml run django python manage.py test'
       }
     }
-    stage('Deploy to registry') {
+    stage('Docker stop') {
       steps {
-        echo 'Deploying on the server'
+        echo 'Stoping the containers'
+        sh 'docker-compose -f production.yml stop'
+        cleanWs(cleanWhenSuccess: true)
       }
     }
   }
