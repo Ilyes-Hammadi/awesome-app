@@ -7,6 +7,10 @@ A short description of the project.
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
 
+.. image:: https://8dfd1687.ngrok.io/buildStatus/icon?job=awesome-app/master
+
+
+
 
 :License: MIT
 
