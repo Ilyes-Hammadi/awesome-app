@@ -3,7 +3,18 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh 'docker-compose -f local.yml'
+        echo 'Hey there I\'m learning Jenkins Blue Ocean'
+      }
+    }
+    stage('Docker build') {
+      steps {
+        sh '''docker-compose -f local.yml build
+'''
+      }
+    }
+    stage('Unit tests') {
+      steps {
+        sh 'docker-compose -f local.yml run django python manage.py test'
       }
     }
   }
