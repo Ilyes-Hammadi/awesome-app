@@ -17,5 +17,10 @@ pipeline {
         sh 'docker-compose -f local.yml run django python manage.py test'
       }
     }
+    stage('Deploy to registry') {
+      steps {
+        echo 'Deploying on the server'
+      }
+    }
   }
 }
